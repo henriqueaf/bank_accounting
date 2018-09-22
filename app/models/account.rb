@@ -3,7 +3,7 @@ class Account < ApplicationRecord
   has_many :transferences
 
   validates :user, presence: true
-  validates :identifier, length: {is: 6}, allow_blank: false, presence: true
+  validates :identifier, length: {is: 6}, allow_blank: false, presence: true, on: :update
 
   before_create :generate_identifier
 

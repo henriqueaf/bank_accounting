@@ -17,6 +17,15 @@ RSpec.describe User, type: :model do
   end
 
   context "Associations" do
-    it { should have_many(:accounts) }
+    it { should have_one(:account) }
+  end
+
+  context "Callback" do
+    context "after_create#create_initial_transference" do
+      it "should create an initial transference after create" do
+        user = create(:user)
+        expect(user.transferences.sum(:value)).to eq(Transference::INITIAL_VALUE)
+      end
+    end
   end
 end
