@@ -30,16 +30,4 @@ RSpec.describe Account, type: :model do
     it { should belong_to(:user) }
     it { should have_many(:transferences) }
   end
-
-  context "Instance methods" do
-    context "#amount" do
-      it "should return account's transferences values sum" do
-        account = create(:account)
-        first_transference = account.transferences.create(value: Faker::Number.decimal(10, 2))
-        second_transference = account.transferences.create(value: Faker::Number.decimal(10, 2))
-
-        expect(account.amount).to eq(first_transference.value + second_transference.value)
-      end
-    end
-  end
 end

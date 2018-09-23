@@ -2,13 +2,13 @@
   <div class="col-sm-6 text-center">
     <div class="mb-3">
       <small><%= t(".your_account_balance") %></small>
-      <%= display_amount current_user.account.amount %>
+      <%= display_amount @account_balance %>
     </div>
 
     <%= link_to t(".make_transference"), "#", class: "btn btn-outline-warning", data: { "source-account-id" => current_user.account.id }, id: "getTransferenceFormLink" %>
   </div>
   <div class="col-sm-6">
-    <%= render 'account_transferences_list', transferences: current_user.account.transferences %>
+    <%= render 'account_transferences_list', transferences: @transferences %>
   </div>
 </div>
 

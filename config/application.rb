@@ -16,5 +16,9 @@ module BankAccounting
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     ActiveRecord::Base.time_zone_aware_types = [:datetime]
+
+    # Dir[Rails.root.join('lib/extensions/**/*.rb')].each { |f| require f }
+    config.autoload_paths << Rails.root.join("lib")
+    config.eager_load_paths << Rails.root.join("lib")
   end
 end

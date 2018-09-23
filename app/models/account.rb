@@ -7,10 +7,6 @@ class Account < ApplicationRecord
 
   before_create :generate_identifier
 
-  def amount
-    self.transferences.sum(:value)
-  end
-
   private
 
   def generate_identifier

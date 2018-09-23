@@ -43,7 +43,7 @@ var homeFunctions = {
           swal({
             type: 'success',
             title: 'Transferred!',
-            text: 'The page will reresh in 3s...',
+            text: 'The page will refresh in 3s...',
             timer: 3000,
             onClose: function(){
               location.reload();
