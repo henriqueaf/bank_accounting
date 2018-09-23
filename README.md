@@ -7,11 +7,14 @@ This is a fake Bank Account system that allow registered users to simulate money
 Basically this system allow any person to sign up and start to transfer money to other people. To make a transference the user only need to select other user account and value of the transference. Of course, there are some rules:
 * Source account need to have enough money
 * Both accounts (source and destination) need to be a valid one
+* Ensure that credit and debit transactions stay together (if one fail, the other one is canceled)
 
 It uses a Ruby on Rails framework and PostgreSQL as database.
 
 ## Demo
 Enjoy a running example here: https://bank-accounting.herokuapp.com/
+
+PS: Play with it at your own risk! I'm not responsible for whatever you do with your FAKE VIRTUAL MONEY! =D
 
 ## Dependencies
 To get started with this project you will need to install:
@@ -43,5 +46,3 @@ When you play with the code, remember to run the tests to make sure it's not bro
 ```
 $ bundle exec rspec
 ```
-
-PS: Play with it at your own risk! I'm not responsible for whatever you do with your FAKE VIRTUAL MONEY! =D
