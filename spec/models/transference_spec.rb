@@ -28,7 +28,7 @@ RSpec.describe Transference, type: :model do
   end
 
   context "Class Methods" do
-    context "#transfer_money" do
+    context "#transfer_money?" do
       let(:source_account) { create(:user).account }
       let(:destination_account) { create(:user).account }
       let(:transfer_value) { Faker::Number.decimal(10, 2).to_f }
@@ -39,7 +39,7 @@ RSpec.describe Transference, type: :model do
         end
 
         it "should return false" do
-          result = Transference.transfer_money(source_account.id, destination_account.id, transfer_value)
+          result = Transference.transfer_money?(source_account.id, destination_account.id, transfer_value)
           source_account_transference = source_account.transferences.find_by(value: -transfer_value)
           destination_account_transference = destination_account.transferences.find_by(value: transfer_value)
 
@@ -55,7 +55,7 @@ RSpec.describe Transference, type: :model do
         end
 
         it "should return true" do
-          result = Transference.transfer_money(source_account.id, destination_account.id, transfer_value)
+          result = Transference.transfer_money?(source_account.id, destination_account.id, transfer_value)
           source_account_transference = source_account.transferences.find_by(value: -transfer_value)
           destination_account_transference = destination_account.transferences.find_by(value: transfer_value)
 
@@ -67,7 +67,7 @@ RSpec.describe Transference, type: :model do
         context "raise error on database transaction" do
           it "should not create transferences" do
             allow(Transference).to receive(:create!).and_raise("boom")
-            expect{ Transference.transfer_money(source_account.id, destination_account.id, transfer_value) }.to raise_error("boom")
+            expect{ Transference.transfer_money?(source_account.id, destination_account.id, transfer_value) }.to raise_error("boom")
 
             source_account_transference = source_account.transferences.find_by(value: -transfer_value)
             destination_account_transference = destination_account.transferences.find_by(value: transfer_value)

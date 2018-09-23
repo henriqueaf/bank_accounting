@@ -11,5 +11,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :home, only: [:index]
+  resources :home, only: [:index] do
+    collection do
+      get :transference_form
+      post :transfer_money
+    end
+  end
 end
