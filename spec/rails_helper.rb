@@ -3,6 +3,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'webmock/rspec'
+require 'devise'
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 if ENV["CC_TEST_REPORTER_ID"]
   require "simplecov"
@@ -55,7 +57,10 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
   config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include SpecHelpers::ControllerHelpers
+  config.extend SpecHelpers::ControllerMacros, type: :controller
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   # config.fixture_path = "#{::Rails.root}/spec/fixtures"
