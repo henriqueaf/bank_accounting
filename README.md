@@ -10,6 +10,9 @@ Basically this system allow any person to sign up and start to transfer money to
 
 It uses a Ruby on Rails framework and PostgreSQL as database.
 
+## Demo
+Enjoy a running example here: https://bank-accounting.herokuapp.com/
+
 ## Dependencies
 To get started with this project you will need to install:
 * Ruby: https://rvm.io/ (version 2.5.1)
