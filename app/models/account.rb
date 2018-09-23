@@ -1,5 +1,6 @@
 class Account < ApplicationRecord
   belongs_to :user
+  has_many :transferences
 
   validates :user, presence: true
   validates :identifier, length: {is: 6}, allow_blank: false, presence: true
