@@ -1,2 +1,13 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="row">
+  <div class="col-sm-6 text-center">
+    <div class="mb-3">
+      <small>Your account balance</small>
+      <%= display_amount current_user.account.amount %>
+    </div>
+
+    <%= link_to t(".make_transference"), "#", class: "btn btn-block btn-outline-warning" %>
+  </div>
+  <div class="col-sm-6">
+    <%= render 'account_transferences_list', transferences: current_user.account.transferences %>
+  </div>
+</div>
