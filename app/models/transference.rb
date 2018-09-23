@@ -1,4 +1,6 @@
 class Transference < ApplicationRecord
+  INITIAL_VALUE = 5000
+
   belongs_to :account
 
   validates :account, presence: true

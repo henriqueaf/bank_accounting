@@ -12,8 +12,8 @@ RSpec.describe Account, type: :model do
 
   context "Validations" do
     it { should validate_presence_of(:user) }
-    it { should_not allow_value("", nil).for(:identifier) }
-    it { should validate_length_of(:identifier).is_equal_to(6) }
+    it { should_not allow_value("", nil).for(:identifier).on(:update) }
+    it { should validate_length_of(:identifier).is_equal_to(6).on(:update) }
 
     describe "#generate_identifier" do
       it "should generate identifier before create" do
