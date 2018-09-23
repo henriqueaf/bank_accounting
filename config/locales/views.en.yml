@@ -1,4 +1,6 @@
 en:
   home:
     index:
-      make_transference: "Make a transference"
+      make_transference: Make a transference
+      your_account_balance: Your account balance
+      transfer_money: "Transfer"
