@@ -3,6 +3,8 @@ class HomeController < ApplicationController
   before_action :format_value, only: :transfer_money
 
   def index
+    @account_balance = Core.get_balance(current_user.account.id)
+    @transferences = current_user.account.transferences
   end
 
   def transference_form
@@ -20,7 +22,7 @@ class HomeController < ApplicationController
   end
 
   def transfer_money
-    did_work = Transference.transfer_money?(
+    did_work = Core.transfer_money?(
       transfer_money_params[:source_account_id],
       transfer_money_params[:destination_account_id],
       transfer_money_params[:value].to_f

@@ -1,8 +1,8 @@
 module SpecHelpers
   module ControllerMacros
-    def sign_in_before
+    def sign_in_before(user = build_stubbed(:user))
       before do
-        sign_in_mock_user
+        sign_in_mock_user(user)
       end
     end
 

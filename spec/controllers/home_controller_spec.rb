@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe HomeController, type: :controller do
+  let(:user){ create(:user) }
+
   context "unsigned user" do
     expect_redirected_after
 
@@ -16,12 +18,19 @@ RSpec.describe HomeController, type: :controller do
   end
 
   context "signed in user" do
-    sign_in_before
+    before do
+      sign_in_mock_user(user)
+    end
 
     describe "GET #index" do
-      it "returns http success" do
+      it "returns http success and assigns" do
         get :index
+
+        account_balance = Core.get_balance(user.account.id)
+
         expect(response).to have_http_status(:success)
+        expect(assigns(:account_balance)).to eq(account_balance)
+        expect(assigns(:transferences)).to eq(user.account.transferences)
       end
     end
 
