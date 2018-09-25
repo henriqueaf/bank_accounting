@@ -38,8 +38,6 @@ class HomeController < ApplicationController
   end
 
   def format_value
-    if request.xhr?
-      params[:transfer_money][:value].gsub!(/[\.\,]/, "." => "", "," => ".")
-    end
+    params[:transfer_money][:value] = params[:transfer_money][:value].gsub(/[\.\,]/, "").insert(-3, ".")
   end
 end
