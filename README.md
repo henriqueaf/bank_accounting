@@ -47,6 +47,16 @@ When you play with the code, remember to run the tests to make sure it's not bro
 $ bundle exec rspec
 ```
 
+After that, just run the server...
+```
+$ rails server
+```
+
+... and access the URL on your browser
+```
+http://localhost:3000
+```
+
 ## Console Usage
 You can try it by Rails console. First, enter on project folder and start the rails console:
 ```
