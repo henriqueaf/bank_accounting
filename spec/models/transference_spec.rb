@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Transference, type: :model do
-  it "Should have a valid factory" do
-    expect(FactoryBot.build(:transference)).to be_valid
-  end
-
   context "Should Respond" do
     it { should respond_to(:account_id) }
     it { should respond_to(:value) }

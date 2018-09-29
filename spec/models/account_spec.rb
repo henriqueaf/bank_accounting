@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Account, type: :model do
-  it "should have a valid factory" do
-    expect(FactoryBot.build(:account)).to be_valid
-  end
-
   context "Should Respond" do
     it { should respond_to(:user_id) }
     it { should respond_to(:identifier) }

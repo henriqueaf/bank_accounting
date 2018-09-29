@@ -5,7 +5,6 @@ RSpec.describe UseCases::GetBalance do
 
   context "Responds" do
     it { should respond_to(:get_balance) }
-    it { should be_a(Class) }
   end
 
   context "Methods" do
