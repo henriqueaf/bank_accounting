@@ -66,15 +66,14 @@ RSpec.describe UseCases::TransferMoney do
     end
 
     context "source_account not exist" do
-      it "should return false" do
-        transfer_money = UseCases::TransferMoney.new(
-          source_account_id: 999,
-          destination_account_id: 999,
-          value: transfer_value
-        )
-
-        result = transfer_money.transfer?
-        expect(result).to be_falsey
+      it "should raise error" do
+        expect{
+          UseCases::TransferMoney.new(
+            source_account_id: 999,
+            destination_account_id: 999,
+            value: transfer_value
+          ).transfer?
+        }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end

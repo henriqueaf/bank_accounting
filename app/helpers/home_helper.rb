@@ -16,7 +16,14 @@ module HomeHelper
 
     content_tag(:li, class: "list-group-item #{additional_class}") do
       content_tag(:font, number_to_currency(transference.value)) +
-      fa_icon(icon_name, class: "pull-right")
+      content_tag(:font,
+        number_to_currency(
+          UseCases::GetBalance.get_balance_up_to_timestamp(
+            account_id: transference.account_id,
+            timestamp: transference.created_at
+          )
+        ), class: "pull-right"
+      )
     end
   end
 end
