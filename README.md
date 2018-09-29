@@ -20,6 +20,7 @@ PS: Play with it at your own risk! I'm not responsible for whatever you do with 
 To get started with this project you will need to install:
 * Ruby: https://rvm.io/ (version 2.5.1)
 * PostgresSQL: https://www.postgresql.org/download/
+* Npm: https://www.npmjs.com/get-npm
 
 ## Getting started
 Clone this project:
@@ -40,6 +41,11 @@ $ cp config/database.yml.example config/database.yml
 Create and migrate database:
 ```
 $ rake db:setup
+```
+
+Install npm packages:
+```
+$ npm install
 ```
 
 When you play with the code, remember to run the tests to make sure it's not broken: (you should run tests before play with code, just saying...)
