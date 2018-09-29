@@ -75,7 +75,7 @@ And here we can transfer money using the module created for that:
 > Core.transfer_money?(source_user.account.id, destination_user.account.id, 1000)
 # => true
 
-> Core.get_balance(source_user.account.id).to_f
+> Core.get_balance(source_user.account.id).to_d
 # => 4000.0
 
 > Core.transfer_money?(source_user.account.id, destination_user.account.id, 100000)

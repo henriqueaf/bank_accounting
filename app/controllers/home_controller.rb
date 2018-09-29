@@ -25,7 +25,7 @@ class HomeController < ApplicationController
     did_work = Core.transfer_money?(
       current_user.account.id,
       transfer_money_params[:destination_account_id],
-      transfer_money_params[:value].to_f
+      transfer_money_params[:value].to_d
     )
 
     head (did_work ? 200 : 400)
