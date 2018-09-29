@@ -54,7 +54,6 @@ RSpec.describe HomeController, type: :controller do
 
           post :transfer_money, params: {
             transfer_money: {
-              source_account_id: source_account.id,
               destination_account_id: destination_account.id,
               value: low_value
             }
@@ -70,7 +69,6 @@ RSpec.describe HomeController, type: :controller do
 
           post :transfer_money, params: {
             transfer_money: {
-              source_account_id: source_account.id,
               destination_account_id: destination_account.id,
               value: high_value
             }

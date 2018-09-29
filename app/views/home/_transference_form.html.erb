@@ -1,5 +1,4 @@
 <%= simple_form_for :transfer_money, url: transfer_money_home_index_path, html: { id: "transferenceForm" } do |f| %>
   <%= f.input :destination_account_id, as: :select, collection: dropdown_content %>
   <%= f.input :value, input_html: { class: "maskMoney" } %>
-  <%= f.input :source_account_id, as: :hidden, input_html: { value: source_account_id } %>
 <% end %>
