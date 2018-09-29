@@ -17,10 +17,6 @@ RSpec.describe UseCases::TransferMoney do
     it { should respond_to(:transfer?) }
   end
 
-  it "should be a class" do
-    expect(UseCases::TransferMoney).to be_a(Class)
-  end
-
   context "source account without enough money" do
     before do
       source_account.transferences.update_all(value: 0.0)
