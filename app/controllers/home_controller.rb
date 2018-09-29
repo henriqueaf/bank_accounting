@@ -23,7 +23,7 @@ class HomeController < ApplicationController
 
   def transfer_money
     did_work = Core.transfer_money?(
-      transfer_money_params[:source_account_id],
+      current_user.account.id,
       transfer_money_params[:destination_account_id],
       transfer_money_params[:value].to_f
     )
