@@ -7,7 +7,7 @@ class UseCases::TransferMoney
 
   def transfer?
     source_account_balance = UseCases::GetBalance.get_balance(account_id: @source_account_id)
-    return false if source_account_balance.is_a?(String) || source_account_balance < @value
+    return false if source_account_balance < @value
 
     transfer_result = ActiveRecord::Base.transaction do
       Transference.create!(account_id: @source_account_id,      value: - @value)

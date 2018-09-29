@@ -8,8 +8,9 @@ RSpec.describe Core do
   end
 
   context "Methods" do
+    let(:source_account_id){ create(:account).id }
+
     context "@transfer_money?" do
-      let(:source_account_id){ 1 }
       let(:destination_account_id){ 2 }
       let(:value){ 100 }
 
@@ -28,18 +29,14 @@ RSpec.describe Core do
         Core.transfer_money?(source_account_id, destination_account_id, value)
       end
     end
-  end
 
-  context "Methods" do
     context "@get_balance" do
-      let(:account_id){ 1 }
-
       it "should call UseCases::GetBalance get_balance" do
         expect(UseCases::GetBalance).to receive(:get_balance).with(
-          account_id: account_id
+          account_id: source_account_id
         ).and_call_original
 
-        Core.get_balance(account_id)
+        Core.get_balance(source_account_id)
       end
     end
   end
