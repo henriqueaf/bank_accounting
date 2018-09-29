@@ -13,8 +13,8 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
-//= require sweetalert2.min
-//= require maskMoney
+//= require sweetalert2/dist/sweetalert2.min
+//= require jquery-maskmoney/dist/jquery.maskMoney.min
 //= require activestorage
 //= require turbolinks
 //= require_tree .
